@@ -1,5 +1,7 @@
 ﻿using Flights.Domain.Core.Errors;
+using Flights.Infrastructure.Extensions;
 using Microsoft.Extensions.Caching.Memory;
+using Newtonsoft.Json;
 
 namespace Flights.Infrastructure.Repositories;
 
@@ -18,11 +20,11 @@ internal class InMemoryCacheFlightsRepository : IFlightsRepository
 
     public async Task<IEnumerable<Flight>> GetAllAsync(DestinationAirports airport)
     {
-        return await _memoryCache.GetOrCreateAsync(GenerateCacheKey(airport), cacheEntry =>
-        {
-            SetCacheSettings.Invoke(cacheEntry);
-            return _flightScraper.GetAllAsync(airport);
-        });
+        var json = _memoryCache.Get<string>(_memoryCache.GenerateCacheKey(airport));
+
+        if (json is null) return await _flightScraper.GetAllAsync(airport);
+
+        return JsonConvert.DeserializeObject<IEnumerable<Flight>>(json);
     }
 
     public async Task<IEnumerable<Flight>> SearchAsync(DestinationAirports airport, string search)
@@ -37,17 +39,5 @@ internal class InMemoryCacheFlightsRepository : IFlightsRepository
         }
 
         return searchResult.Value;
-    }
-
-    private static Action<ICacheEntry> SetCacheSettings => entry =>
-    {
-        entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromSeconds(3);
-    };
-
-    private static string GenerateCacheKey(DestinationAirports airport)
-    {
-        const string cacheKeyPrefix = "FLIGHTS";
-
-        return $"{cacheKeyPrefix}_{airport}";
     }
 }

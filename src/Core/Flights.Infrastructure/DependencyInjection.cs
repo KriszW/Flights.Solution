@@ -1,6 +1,7 @@
 ﻿using Flights.Infrastructure.Common;
 using Flights.Infrastructure.Extensions;
 using Flights.Infrastructure.Repositories;
+using Flights.Infrastructure.Workers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -19,6 +20,8 @@ namespace Flights.Infrastructure
             services.AddTransient<IDateTime, MachineDateTime>();
 
             services.AddScoped<IFlightsRepository, InMemoryCacheFlightsRepository>();
+
+            services.AddHostedService<FlightCacheUpdaterWorker>();
 
             return services;
         }
