@@ -1,3 +1,22 @@
 ﻿@page "/"
 
-<PageTitle>Index</PageTitle>
+@using Flights.Domain.Entities;
+@using Flights.Domain.Enumerations;
+
+@inherits FluxorComponent
+
+<PageTitle>Flight Arrival scanner</PageTitle>
+
+<h1>Here you can see the arriving flights to the selected airport</h1>
+
+<MudContainer MaxWidth="MaxWidth.ExtraLarge" Class="m-auto">
+    <MudTabs @bind-ActivePanelIndex="SelectedTabIndex">
+        <MudTabPanel Text="London Luton Airport">
+            <FlightInfo Items="@State.Value.Flights" Destination="DestinationAirports.LLA" />
+        </MudTabPanel>
+    
+        <MudTabPanel Text="London Heathrow Airport">
+            <FlightInfo Items="@State.Value.Flights" Destination="DestinationAirports.LHR" />
+        </MudTabPanel>
+    </MudTabs>
+</MudContainer>

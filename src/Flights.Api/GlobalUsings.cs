@@ -1,0 +1,10 @@
+﻿global using Flights.Api.Contracts;
+global using Flights.Api.Middlewares;
+global using Flights.Application.Flights.Queries;
+global using Flights.Contracts.Common;
+global using Flights.Domain.Core.Errors;
+global using Flights.Domain.Core.Exceptions;
+global using Flights.Domain.Core.Primitives;
+global using Flights.Domain.Entities;
+global using Flights.Domain.Enumerations;
+global using MediatR;

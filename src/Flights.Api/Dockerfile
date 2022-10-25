@@ -7,6 +7,10 @@ EXPOSE 80
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["src/Flights.Api/Flights.Api.csproj", "src/Flights.Api/"]
+COPY ["src/Core/Flights.Application/Flights.Application.csproj", "src/Core/Flights.Application/"]
+COPY ["src/Core/Flights.Contracts/Flights.Contracts.csproj", "src/Core/Flights.Contracts/"]
+COPY ["src/Core/Flights.Domain/Flights.Domain.csproj", "src/Core/Flights.Domain/"]
+COPY ["src/Core/Flights.Infrastructure/Flights.Infrastructure.csproj", "src/Core/Flights.Infrastructure/"]
 RUN dotnet restore "src/Flights.Api/Flights.Api.csproj"
 COPY . .
 WORKDIR "/src/src/Flights.Api"

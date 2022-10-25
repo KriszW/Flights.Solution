@@ -1,0 +1,37 @@
+﻿@using Flights.Domain.Entities
+@using Flights.Domain.Enumerations
+
+@if (Items != default)
+{
+    <MudDataGrid T="Flight" Items="Items" ReadOnly="true">
+        <ToolBarContent>
+            <MudText Typo="Typo.h3">Flights arriving to @(Destination)</MudText>
+            <MudSpacer />
+            <MudTextField @bind-Value="SearchQuery" Placeholder="Search..." Adornment="Adornment.Start"
+                      AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+            <MudSpacer />
+            <MudIconButton Icon="@Icons.Material.Outlined.Refresh" Class="mr-5" OnClick="() => Refresh()" />
+        </ToolBarContent>
+        <Columns>
+            <Column T="Flight" Field="ScheduledAt" Title="ScheduledAt" Sortable="true" Filterable="true" IsEditable="false" />
+            <Column T="Flight" Field="From" Title="From" Sortable="true" Filterable="true" />
+            <Column T="Flight" Field="FlightNumber" Title="FlightNumber" Sortable="true" Filterable="true" />
+            <Column T="Flight" Field="Status" Title="Status" Sortable="true" Filterable="true" />
+
+        </Columns>
+    </MudDataGrid>
+}
+else
+{
+    <MudProgressCircular Color="Color.Default" Indeterminate="true" />
+}
+
+
+
+@code {
+    [Parameter]
+    public IEnumerable<Flight> Items { get; set; }
+
+    [Parameter]
+    public DestinationAirports Destination { get; set; }
+}

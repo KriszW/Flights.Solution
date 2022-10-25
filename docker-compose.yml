@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  flights.api:
+    image: kriszw/flights.api
+    build:
+      context: .
+      dockerfile: src/Flights.Api/Dockerfile
+
+  flights.web:
+    image: kriszw/flights.web
+    build:
+      context: .
+      dockerfile: src/Flights.Web/Dockerfile

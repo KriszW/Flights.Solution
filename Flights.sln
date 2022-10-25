@@ -9,17 +9,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{B52E52EB
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{AA74DC84-3155-4C36-BAF8-5A53A27F20D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flights.Domain", "src\Core\Flights.Domain\Flights.Domain.csproj", "{8F768BF7-0416-4E44-B691-CF81C115397E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Flights.Domain", "src\Core\Flights.Domain\Flights.Domain.csproj", "{8F768BF7-0416-4E44-B691-CF81C115397E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flights.Application", "src\Core\Flights.Application\Flights.Application.csproj", "{E40B46BE-4D45-41EE-801B-D5AF34466C2D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Flights.Application", "src\Core\Flights.Application\Flights.Application.csproj", "{E40B46BE-4D45-41EE-801B-D5AF34466C2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flights.Contracts", "src\Core\Flights.Contracts\Flights.Contracts.csproj", "{5AF067A6-F45F-4F65-89CA-0B6066A6608F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Flights.Contracts", "src\Core\Flights.Contracts\Flights.Contracts.csproj", "{5AF067A6-F45F-4F65-89CA-0B6066A6608F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Flights.Infrastructure", "src\Core\Flights.Infrastructure\Flights.Infrastructure.csproj", "{B51203B1-8FF3-4400-8F9E-C40CE687AD81}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flights.Api", "src\Flights.Api\Flights.Api.csproj", "{B48612AA-3E8D-4A15-8912-B63F42EDD203}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Flights.Api", "src\Flights.Api\Flights.Api.csproj", "{B48612AA-3E8D-4A15-8912-B63F42EDD203}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flights.Web", "Flights.Web\Flights.Web.csproj", "{F5456576-DDC7-45E8-909E-C37B6E744D06}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Flights.Domain.Tests", "tests\Flights.Domain.Tests\Flights.Domain.Tests.csproj", "{E6555EFC-5613-42D0-9374-F188724725AA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Flights.Web", "src\Flights.Web\Flights.Web.csproj", "{AEB7E714-5FA0-4ED3-88AA-5CC88308043E}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{376F7CC7-8727-45A3-A478-E1AD4803AA84}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,10 +51,18 @@ Global
 		{B48612AA-3E8D-4A15-8912-B63F42EDD203}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B48612AA-3E8D-4A15-8912-B63F42EDD203}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B48612AA-3E8D-4A15-8912-B63F42EDD203}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F5456576-DDC7-45E8-909E-C37B6E744D06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F5456576-DDC7-45E8-909E-C37B6E744D06}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F5456576-DDC7-45E8-909E-C37B6E744D06}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F5456576-DDC7-45E8-909E-C37B6E744D06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6555EFC-5613-42D0-9374-F188724725AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6555EFC-5613-42D0-9374-F188724725AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6555EFC-5613-42D0-9374-F188724725AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6555EFC-5613-42D0-9374-F188724725AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEB7E714-5FA0-4ED3-88AA-5CC88308043E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEB7E714-5FA0-4ED3-88AA-5CC88308043E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEB7E714-5FA0-4ED3-88AA-5CC88308043E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEB7E714-5FA0-4ED3-88AA-5CC88308043E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{376F7CC7-8727-45A3-A478-E1AD4803AA84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{376F7CC7-8727-45A3-A478-E1AD4803AA84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{376F7CC7-8727-45A3-A478-E1AD4803AA84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{376F7CC7-8727-45A3-A478-E1AD4803AA84}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,7 +74,8 @@ Global
 		{5AF067A6-F45F-4F65-89CA-0B6066A6608F} = {AA74DC84-3155-4C36-BAF8-5A53A27F20D9}
 		{B51203B1-8FF3-4400-8F9E-C40CE687AD81} = {AA74DC84-3155-4C36-BAF8-5A53A27F20D9}
 		{B48612AA-3E8D-4A15-8912-B63F42EDD203} = {FA07C816-1980-4125-BB9E-609293EEB20F}
-		{F5456576-DDC7-45E8-909E-C37B6E744D06} = {FA07C816-1980-4125-BB9E-609293EEB20F}
+		{E6555EFC-5613-42D0-9374-F188724725AA} = {B52E52EB-FDA5-4488-8DB9-38FA55E7CB8E}
+		{AEB7E714-5FA0-4ED3-88AA-5CC88308043E} = {FA07C816-1980-4125-BB9E-609293EEB20F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {14DC7E18-6800-4DFE-8A99-1CCB1D32C765}

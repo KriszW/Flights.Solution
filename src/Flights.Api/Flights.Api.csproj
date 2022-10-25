@@ -6,11 +6,20 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>..\..</DockerfileContext>
+    <DockerComposeProjectPath>..\..\docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Flights.Application\Flights.Application.csproj" />
+    <ProjectReference Include="..\Core\Flights.Contracts\Flights.Contracts.csproj" />
+    <ProjectReference Include="..\Core\Flights.Domain\Flights.Domain.csproj" />
+    <ProjectReference Include="..\Core\Flights.Infrastructure\Flights.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
